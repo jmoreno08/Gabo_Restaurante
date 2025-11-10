@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gabo. - Header + Footer</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <div class="top-strip">
+    ✨ Sabores mágicos que te transportan a las historias más extraordinarias — Reserva online y fechas especiales ✨
+  </div>
+
+  <header class="site-header" role="banner">
+    <div class="logo" aria-label="Logo Gabo">
+      <div class="mark" aria-hidden="true"><span>G</span></div>
+      <div class="wordmark">
+        <div class="brand">Gabo.</div>
+        <div class="tag">Sabores que cuentan historias</div>
+      </div>
+    </div>
+
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <a href="#inicio">INICIO</a>
+      <a href="#reservas">RESERVAS</a>
+      <a href="#menu">MENÚ</a>
+      <a href="#bonos">BONOS REGALO</a>
+      <a href="#eventos">EVENTOS</a>
+    </nav>
+
+    <div class="actions">
+      <div class="lang" aria-hidden="true">ES  •  EN</div>
+
+      <button class="hamburger" id="hambtn" aria-label="Abrir menú">
+        <span class="bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="close">
+      <button id="closeBtn" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--muted)">✕</button>
+    </div>
+    <nav>
+      <a href="#inicio" onclick="closeMenu()">INICIO</a>
+      <a href="#reservas" onclick="closeMenu()">RESERVAS</a>
+      <a href="#menu" onclick="closeMenu()">MENÚ</a>
+      <a href="#bonos" onclick="closeMenu()">BONOS</a>
+      <a href="#eventos" onclick="closeMenu()">EVENTOS</a>
+    </nav>
+    <hr style="margin:18px 0;border:none;border-top:1px solid rgba(0,0,0,0.06)">
+    <p style="color:var(--muted);text-align:center">Síguenos en Instagram • Facebook • TripAdvisor</p>
+  </div>
+
+  <!-- ======= FOOTER ======= -->
+   
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <section>
+        <div class="brand-block">
+          <div class="mark" aria-hidden="true"><span>G</span></div>
+          <div>
+            <div class="title">Gabo.</div>
+            <div class="tag">Sabores que cuentan historias</div>
+          </div>
+        </div>
+        <p style="margin-top:12px; max-width: 52ch; opacity:.95">Cocina de autor con inspiración latinoamericana. Experiencias para compartir, celebrar y recordar.</p>
+        <div class="social" aria-label="Redes sociales">
+          <a href="#" aria-label="Facebook" title="Facebook">
+            <!-- Facebook SVG -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.07C22 6.48 17.52 2 12 2S2 6.48 2 12.07C2 17.06 5.66 21.2 10.44 22v-7.03H7.9v-2.9h2.54V9.41c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.77l-.44 2.9h-2.33V22C18.34 21.2 22 17.06 22 12.07z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram" title="Instagram">
+            <!-- Instagram SVG -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.51 5.51 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zM17.8 6.2a1 1 0 1 1-1.6 1.2 1 1 0 0 1 1.6-1.2z"/></svg>
+          </a>
+          <a href="#" aria-label="Tripadvisor" title="Tripadvisor">
+            <!-- Tripadvisor SVG -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5c3.97 0 7.43 1.97 9.5 5.02l1.5-.77v8.25l-4.72-2.53A10.45 10.45 0 0 1 12 19a10.45 10.45 0 0 1-6.28-2.03L1 17.5V9.25l1.5.77C4.57 6.97 8.03 5 12 5zm0 2c-3.2 0-6.07 1.52-7.9 4.04l-.38.52-1.22-.62v4.02l2.77.73.22.16A8.47 8.47 0 0 0 12 17c2 0 3.83-.67 5.51-1.85l.22-.16 2.77-.73v-4.02l-1.22.62-.38-.52A9.97 9.97 0 0 0 12 7zm-5 3a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm10 0a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm-10 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm10 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>
+          </a>
+        </div>
+      </section>
+
+      <section>
+        <h4>Contacto</h4>
+        <ul>
+          <li><strong>Dirección:</strong> Calle 00 # 00 - 00, Ciudad</li>
+          <li><strong>Teléfono:</strong> (000) 000 00 00</li>
+          <li><strong>Correo:</strong> <a href="mailto:hola@gabo.com.co">hola@gabo.com.co</a></li>
+          <li><span class="badge">WhatsApp</span> <a href="#">+57 300 000 0000</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h4>Horarios</h4>
+        <ul>
+          <li>Lun – Jue: 12:00 – 22:00</li>
+          <li>Vie – Sáb: 12:00 – 23:30</li>
+          <li>Domingos y festivos: 12:00 – 21:00</li>
+          <li><em>Reservas para grupos y eventos</em></li>
+        </ul>
+      </section>
+
+      <section>
+        <h4>Encuéntranos</h4>
+        <ul>
+          <li><a href="#" target="_blank" rel="noopener">Cómo llegar (Google Maps)</a></li>
+          <li><a href="#menu">Carta y menús especiales</a></li>
+          <li><a href="#reservas">Reservas en línea</a></li>
+          <li><a href="#eventos">Eventos y fechas especiales</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="mini">
+      <div class="container">
+        <small>© <span id="year"></span> Gabo. Todos los derechos reservados.</small>
+        <nav aria-label="Legal">
+          <a href="#">Privacidad</a>
+          <a href="#">Términos</a>
+          <a href="#">Accesibilidad</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

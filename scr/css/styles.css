@@ -1,0 +1,126 @@
+  :root{
+    --bg: #fbefe9;
+    --brand: #254331;   /* verde oscuro */
+    --muted: #6b4f3a;   /* café */
+    --accent: #f0c56a;  /* dorado */
+    --white: #ffffff;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+
+  body{
+    font-family: "Inter", "Nunito", system-ui, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--brand);
+    line-height: 1.4;
+    /* Sticky footer layout */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ======= HEADER (copiado y compatible) ======= */
+  .top-strip{
+    background: var(--brand);
+    color: var(--white);
+    text-align:center;
+    padding:8px 12px;
+    font-weight:600;
+    font-size:14px;
+  }
+
+  .site-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 28px;
+    border-bottom:1px solid rgba(37,67,49,0.06);
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  }
+
+  .logo{ display:flex; align-items:center; gap:14px; }
+  .logo .mark{
+    width:64px; height:64px; border-radius:6px;
+    background: linear-gradient(135deg, var(--accent), rgba(240,197,106,0.85));
+    display:grid; place-items:center; box-shadow: 0 4px 10px rgba(37,67,49,0.08);
+    flex-shrink:0;
+  }
+  .logo .mark span{ color: var(--brand); font-weight:800; font-size:22px; letter-spacing: -1px; font-family: "Georgia", serif; }
+  .logo .wordmark{ display:flex; flex-direction:column; line-height:1; }
+  .logo .wordmark .brand{ font-size:42px; color:var(--brand); font-family: "Georgia", serif; letter-spacing:-1px; font-weight:700; }
+  .logo .wordmark .tag{ font-size:12px; color:var(--muted); margin-top:2px; font-weight:600; }
+
+  .nav{ display:flex; align-items:center; gap:32px; }
+  .nav a{ color:var(--muted); text-decoration:none; font-weight:700; letter-spacing:0.6px; }
+  .nav a:hover{ color:var(--brand) }
+
+  .actions{ display:flex; gap:12px; align-items:center; }
+  .lang{ background:var(--white); padding:6px 10px; border-radius:999px; box-shadow: 0 6px 18px rgba(37,67,49,0.06); font-size:13px; color:var(--muted); display:flex; gap:8px; align-items:center; }
+  .hamburger{ display:none; width:46px; height:46px; border-radius:8px; background:var(--white); border:1px solid rgba(37,67,49,0.06); align-items:center; justify-content:center; cursor:pointer; }
+  .hamburger .bar{ width:20px; height:2px; background:var(--muted); display:block; position:relative; }
+  .hamburger .bar::before, .hamburger .bar::after{ content:""; position:absolute; left:0; width:20px; height:2px; background:var(--muted); }
+  .hamburger .bar::before{ top:-6px } .hamburger .bar::after{ top:6px }
+
+  .mobile-menu{ display:none; position:fixed; top:0; left:0; right:0; height:100vh; background: linear-gradient(180deg,var(--bg), #fff); z-index:1200; padding:28px; overflow:auto; }
+  .mobile-menu .close{ display:flex; justify-content:flex-end; }
+  .mobile-menu nav{ display:flex; flex-direction:column; gap:18px; padding-top:20px; align-items:center; }
+  .mobile-menu nav a{ font-size:22px; color:var(--brand); font-weight:700; text-decoration:none; }
+
+  @media (max-width:900px){
+    .nav{ display:none }
+    .hamburger{ display:flex }
+    .logo .wordmark .brand{ font-size:30px }
+    .logo .mark{ width:52px; height:52px }
+  }
+
+  /* ======= FOOTER ======= */
+  .site-footer{
+    background: var(--brand);
+    color: var(--white);
+    /* empuja el footer al fondo cuando el contenido es corto */
+    margin-top: auto;
+  }
+  .site-footer .container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 28px 22px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.4fr;
+    gap: 32px;
+  }
+  .site-footer h4{
+    font-size: 16px;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    color: var(--accent);
+  }
+  .site-footer p, .site-footer a, .site-footer li{ font-size: 14px; color: rgba(255,255,255,0.92); text-decoration: none; }
+  .site-footer a:hover{ color: var(--accent); }
+  .site-footer ul{ list-style: none; display: grid; gap: 8px; }
+
+  .brand-block{ display:flex; gap:14px; align-items:center; }
+  .brand-block .mark{ width:52px; height:52px; border-radius:6px; background: linear-gradient(135deg, var(--accent), rgba(240,197,106,0.85)); display:grid; place-items:center; box-shadow: 0 4px 10px rgba(0,0,0,0.12);} 
+  .brand-block .mark span{ color: var(--brand); font-weight: 800; font-family: Georgia, serif; }
+  .brand-block .title{ font-family: Georgia, serif; font-size: 26px; font-weight: 700; }
+  .brand-block .tag{ font-size: 12px; opacity: .85; }
+
+  .social{ display:flex; gap:10px; margin-top: 12px; }
+  .social a{ width:38px; height:38px; border-radius: 999px; display:grid; place-items:center; background: rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); }
+  .social a:hover{ background: rgba(255,255,255,0.16); transform: translateY(-1px); }
+  .social svg{ width:18px; height:18px; fill: currentColor; color: var(--white); }
+
+  .mini{ border-top: 1px solid rgba(255,255,255,0.12); margin-top: 22px; }
+  .mini .container{ padding: 14px 28px; display:flex; gap:12px; align-items:center; justify-content:space-between; }
+  .mini nav{ display:flex; gap:16px; }
+  .mini a{ color: rgba(255,255,255,0.8); font-size: 12px; }
+
+  .badge{ display:inline-block; padding:4px 8px; border-radius:999px; background: rgba(240,197,106,0.18); color:var(--accent); font-weight:700; font-size: 11px; letter-spacing:.4px; }
+
+  @media (max-width: 900px){
+    .site-footer .container{ grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px){
+    .site-footer .container{ grid-template-columns: 1fr; }
+    .mini .container{ flex-direction: column; align-items: flex-start; gap:8px; }
+  }
