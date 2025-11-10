@@ -19,7 +19,7 @@
     flex-direction: column;
   }
 
-  /* ======= HEADER (copiado y compatible) ======= */
+  /* ======= HEADER ======= */
   .top-strip{
     background: var(--brand);
     color: var(--white);
