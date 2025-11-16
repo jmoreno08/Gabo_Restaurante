@@ -53,6 +53,10 @@
   .nav{ display:flex; align-items:center; gap:32px; }
   .nav a{ color:var(--muted); text-decoration:none; font-weight:700; letter-spacing:0.6px; }
   .nav a:hover{ color:var(--brand) }
+  .nav a.active{
+  color: var(--brand);
+  border-bottom: 2px solid var(--accent);
+}
 
   .actions{ display:flex; gap:12px; align-items:center; }
   .lang{ background:var(--white); padding:6px 10px; border-radius:999px; box-shadow: 0 6px 18px rgba(37,67,49,0.06); font-size:13px; color:var(--muted); display:flex; gap:8px; align-items:center; }
@@ -319,4 +323,184 @@ input[type="date"], input[type="time"] {
 /* Asegurarse de que el botón de confirmar ocupe todo el ancho */
 .reservation-form .full-width {
     grid-column: 1 / -1;
+}
+
+/* =========================================================
+   ESTILOS CARTA DIGITAL (carta.html)
+   ========================================================= */
+
+.menu-page{
+  max-width: 1140px;
+  margin: 40px auto 60px;
+  padding: 0 20px 40px;
+}
+
+/* Hero de la carta */
+.menu-hero{
+  text-align: left;
+  margin-bottom: 28px;
+}
+.menu-hero h1{
+  font-family: "Georgia", serif;
+  font-size: 34px;
+  color: var(--brand);
+  letter-spacing: .5px;
+}
+.menu-hero p{
+  margin-top: 6px;
+  color: var(--muted);
+  max-width: 52ch;
+}
+
+/* Navegación interna de categorías */
+.menu-categorias{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+.menu-categorias a{
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.9);
+  color: var(--muted);
+  border: 1px solid rgba(37,67,49,0.10);
+  box-shadow: 0 4px 10px rgba(37,67,49,0.06);
+  transition: background .18s ease, transform .15s ease, box-shadow .18s ease, color .18s ease;
+}
+.menu-categorias a:hover{
+  background: var(--accent);
+  color: var(--brand);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+.menu-categorias a.active{
+  background: var(--brand);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.16);
+  border-color: transparent;
+}
+
+/* Secciones de la carta */
+.menu-section{
+  margin-top: 26px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(37,67,49,0.10);
+}
+.menu-section:first-of-type{
+  border-top: none;
+  padding-top: 0;
+}
+.menu-section h2{
+  font-family: "Georgia", serif;
+  font-size: 20px;
+  color: var(--brand);
+  margin-bottom: 14px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* Grid y tarjetas */
+.menu-grid{
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr;
+  gap: 14px 26px;
+}
+.menu-grid-bebidas{
+  grid-template-columns: 1fr 1fr;
+}
+
+.menu-card{
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px 14px;
+  border: 1px solid rgba(37,67,49,0.08);
+  box-shadow: 0 4px 14px rgba(37,67,49,0.06);
+  position: relative;
+  overflow: hidden;
+}
+.menu-card::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left,
+              rgba(240,197,106,0.16),
+              rgba(255,255,255,0));
+  opacity: .9;
+  pointer-events: none;
+}
+.menu-card h3{
+  position: relative;
+  z-index: 1;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--brand);
+  margin-bottom: 4px;
+}
+.menu-card p{
+  position: relative;
+  z-index: 1;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.menu-card .precio{
+  position: relative;
+  z-index: 1;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: .04em;
+}
+
+/* Imagen dentro de la tarjeta */
+.menu-card-media{
+  width: 100%;
+  height: 130px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.10);
+  position: relative;
+  overflow: hidden;
+}
+.menu-card-media::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.35), transparent 45%);
+  pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .menu-page{
+    margin-top: 28px;
+  }
+  .menu-grid,
+  .menu-grid-bebidas{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px){
+  .menu-hero h1{
+    font-size: 26px;
+  }
+  .menu-hero p{
+    font-size: 14px;
+  }
+  .menu-categorias{
+    gap: 6px;
+  }
+  .menu-categorias a{
+    font-size: 12px;
+    padding: 5px 12px;
+  }
 }
