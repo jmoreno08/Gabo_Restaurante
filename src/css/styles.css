@@ -73,6 +73,118 @@
     .logo .mark{ width:52px; height:52px }
   }
 
+  /* ======= HERO ======= */
+   /* Estilo general */
+body {
+    margin: 0;
+    font-family: "Georgia", serif;
+    background-color: #f3e5d0;
+    color: #3a2e25;
+}
+
+/* ----- HERO ----- */
+.hero {
+    background-image: url('imghero.jpg');
+    background-size: cover;
+    background-position: top;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.hero-text h1 {
+    color: white;
+    text-align: center;
+    max-width: 600px;
+    font-size: 1.8rem;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);           
+}
+
+/* ----- MENÚ ----- */
+.menu-section {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.menu-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.menu-grid {
+    display: flex;
+    justify-content: center; 
+    gap: 50px;
+    flex-wrap: wrap;
+    max-width: 900px; 
+    margin: 0 auto;
+}
+
+.menu-item {
+    background: #f7ecd9;
+    border: 1px solid #d8c4a7;
+    border-radius: 6px;
+    width: 260px;
+    padding-bottom: 15px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.menu-item:hover {
+    transform: scale(1.03);
+}
+
+.menu-item img {
+    width: 100%;
+    border-bottom: 1px solid #d8c4a7;
+}
+
+.menu-item h3 {
+    margin: 10px 0 5px;
+    font-size: 1.1rem;
+}
+
+.price {
+    font-weight: bold;
+}
+
+/* ----- RESERVAS ----- */
+.reservas-section {
+    padding: 30px 20px;
+}
+
+.reservas-form {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    max-width: 600px;
+}
+
+.reservas-form input {
+    padding: 10px;
+    border: 1px solid #b8a18a;
+    border-radius: 5px;
+    width: 180px;
+    background: #fadac4;
+}
+
+.reservas-form button {
+    padding: 10px 20px;
+    background: #3a2e25;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.reservas-form button:hover {
+    background: #5c473a;
+}
+
+
   /* ======= FOOTER ======= */
   .site-footer{
     background: var(--brand);
