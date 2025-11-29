@@ -22,15 +22,15 @@
         </div>
 
         <nav class="nav" role="navigation" aria-label="Main navigation">
-            <a href="#inicio">INICIO</a>
-            <a href="#reservas">RESERVAS</a>
+            <a href="index.html">INICIO</a>
+            <a href="#reservas">RESERVAS</a> 
             <a href="carta.html">MENÚ</a>
-            <a href="#bonos">BONOS REGALO</a>
+            <a href="#giftcard" id="openGiftcardModal">BONOS DE REGALO</a> 
             <a href="#eventos">EVENTOS</a>
         </nav>
 
         <div class="actions">
-            <div class="lang" aria-hidden="true">ES  •  EN</div>
+            <div class="lang" aria-hidden="true">ES • EN</div>
 
             <button class="hamburger" id="hambtn" aria-label="Abrir menú">
                 <span class="bar"></span>
@@ -43,10 +43,10 @@
             <button id="closeBtn" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--muted)">✕</button>
         </div>
         <nav>
-            <a href="#inicio" onclick="closeMenu()">INICIO</a>
-            <a href="#reservas" onclick="closeMenu()">RESERVAS</a>
+            <a href="index.html" onclick="closeMenu()">INICIO</a>
+            <a href="#reservas" onclick="openReservasModal(event); closeMenu();">RESERVAS</a> 
             <a href="carta.html" onclick="closeMenu()">MENÚ</a>
-            <a href="#bonos" onclick="closeMenu()">BONOS</a>
+            <a href="#giftcard" onclick="openGiftcardModal(event); closeMenu();">BONOS DE REGALO</a> 
             <a href="#eventos" onclick="closeMenu()">EVENTOS</a>
         </nav>
         <hr style="margin:18px 0;border:none;border-top:1px solid rgba(0,0,0,0.06)">
@@ -96,6 +96,45 @@
             </form>
         </div>
     </div>
+
+    <div class="modal-backdrop" id="giftcardModal" aria-modal="true" role="dialog" aria-hidden="true">
+        <div class="modal-content giftcard-modal-content">
+            <button class="modal-close" id="closeGiftcardBtn" aria-label="Cerrar ventana de bono regalo">✕</button>
+            
+            <div class="giftcard-header">
+                <div class="giftcard-logo-g" aria-hidden="true">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <text x="50" y="65" text-anchor="middle" font-family="Georgia, serif" font-size="40" fill="currentColor">G</text>
+                        </svg>
+                </div>
+                <h2 class="giftcard-title">Crea una <b>Gift Card</b> a la medida</h2>
+            </div>
+
+            <form class="giftcard-form">
+                <select aria-label="Valor del Gift Card">
+                    <option selected disabled>Valor del Gift Card</option>
+                    <option value="50000">$50.000 COP</option>
+                    <option value="100000">$100.000 COP</option>
+                    <option value="200000">$200.000 COP</option>
+                    <option value="custom">Otro Valor</option>
+                </select>
+                <input type="date" placeholder="Fecha en la que quieres enviarla" aria-label="Fecha de envío">
+
+                <input type="text" placeholder="¿Para quién es el regalo?" aria-label="Nombre del destinatario">
+                <input type="email" placeholder="Correo al que se enviará" aria-label="Correo del destinatario">
+
+                <input type="text" placeholder="De: Tu nombre" aria-label="Tu nombre">
+                <input type="email" placeholder="Tu correo" aria-label="Tu correo">
+
+                <div class="full-width">
+                    <textarea placeholder="Escribe el mensaje que quieres que reciba (opcional especial...)" aria-label="Mensaje para el destinatario" rows="3"></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary full-width">Realizar pago</button>
+            </form>
+        </div>
+    </div>
+    
     <footer class="site-footer" role="contentinfo">
         <div class="container">
             <section>
@@ -144,7 +183,7 @@
                 <h4>Encuéntranos</h4>
                 <ul>
                     <li><a href="#" target="_blank" rel="noopener">Cómo llegar (Google Maps)</a></li>
-                    <li><a href="#menu">Carta y menús especiales</a></li>
+                    <li><a href="carta.html">Carta y menús especiales</a></li>
                     <li><a href="#reservas">Reservas en línea</a></li>
                     <li><a href="#eventos">Eventos y fechas especiales</a></li>
                 </ul>

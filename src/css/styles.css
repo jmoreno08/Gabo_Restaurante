@@ -1,14 +1,14 @@
-  :root{
+:root{
     --bg: #fbefe9;
-    --brand: #254331;   /* verde oscuro */
-    --muted: #6b4f3a;   /* café */
-    --accent: #f0c56a;  /* dorado */
+    --brand: #254331; 
+    --muted: #6b4f3a; 
+    --accent: #f0c56a; 
     --white: #ffffff;
-  }
+}
 
-  *{box-sizing:border-box;margin:0;padding:0}
+*{box-sizing:border-box;margin:0;padding:0}
 
-  body{
+body{
     font-family: "Inter", "Nunito", system-ui, Arial, sans-serif;
     background: var(--bg);
     color: var(--brand);
@@ -17,119 +17,119 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-  }
+}
 
-  /* ======= HEADER ======= */
-  .top-strip{
+/* ======= HEADER ======= */
+.top-strip{
     background: var(--brand);
     color: var(--white);
     text-align:center;
     padding:8px 12px;
     font-weight:600;
     font-size:14px;
-  }
+}
 
-  .site-header{
+.site-header{
     display:flex;
     align-items:center;
     justify-content:space-between;
     padding:18px 28px;
     border-bottom:1px solid rgba(37,67,49,0.06);
     background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
-  }
+}
 
-  .logo{ display:flex; align-items:center; gap:14px; }
-  .logo .mark{
+.logo{ display:flex; align-items:center; gap:14px; }
+.logo .mark{
     width:64px; height:64px; border-radius:6px;
     background: linear-gradient(135deg, var(--accent), rgba(240,197,106,0.85));
     display:grid; place-items:center; box-shadow: 0 4px 10px rgba(37,67,49,0.08);
     flex-shrink:0;
-  }
-  .logo .mark span{ color: var(--brand); font-weight:800; font-size:22px; letter-spacing: -1px; font-family: "Georgia", serif; }
-  .logo .wordmark{ display:flex; flex-direction:column; line-height:1; }
-  .logo .wordmark .brand{ font-size:42px; color:var(--brand); font-family: "Georgia", serif; letter-spacing:-1px; font-weight:700; }
-  .logo .wordmark .tag{ font-size:12px; color:var(--muted); margin-top:2px; font-weight:600; }
+}
+.logo .mark span{ color: var(--brand); font-weight:800; font-size:22px; letter-spacing: -1px; font-family: "Georgia", serif; }
+.logo .wordmark{ display:flex; flex-direction:column; line-height:1; }
+.logo .wordmark .brand{ font-size:42px; color:var(--brand); font-family: "Georgia", serif; letter-spacing:-1px; font-weight:700; }
+.logo .wordmark .tag{ font-size:12px; color:var(--muted); margin-top:2px; font-weight:600; }
 
-  .nav{ display:flex; align-items:center; gap:32px; }
-  .nav a{ color:var(--muted); text-decoration:none; font-weight:700; letter-spacing:0.6px; }
-  .nav a:hover{ color:var(--brand) }
-  .nav a.active{
-  color: var(--brand);
-  border-bottom: 2px solid var(--accent);
+.nav{ display:flex; align-items:center; gap:32px; }
+.nav a{ color:var(--muted); text-decoration:none; font-weight:700; letter-spacing:0.6px; }
+.nav a:hover{ color:var(--brand) }
+.nav a.active{
+    color: var(--brand);
+    border-bottom: 2px solid var(--accent);
 }
 
-  .actions{ display:flex; gap:12px; align-items:center; }
-  .lang{ background:var(--white); padding:6px 10px; border-radius:999px; box-shadow: 0 6px 18px rgba(37,67,49,0.06); font-size:13px; color:var(--muted); display:flex; gap:8px; align-items:center; }
-  .hamburger{ display:none; width:46px; height:46px; border-radius:8px; background:var(--white); border:1px solid rgba(37,67,49,0.06); align-items:center; justify-content:center; cursor:pointer; }
-  .hamburger .bar{ width:20px; height:2px; background:var(--muted); display:block; position:relative; }
-  .hamburger .bar::before, .hamburger .bar::after{ content:""; position:absolute; left:0; width:20px; height:2px; background:var(--muted); }
-  .hamburger .bar::before{ top:-6px } .hamburger .bar::after{ top:6px }
+.actions{ display:flex; gap:12px; align-items:center; }
+.lang{ background:var(--white); padding:6px 10px; border-radius:999px; box-shadow: 0 6px 18px rgba(37,67,49,0.06); font-size:13px; color:var(--muted); display:flex; gap:8px; align-items:center; }
+.hamburger{ display:none; width:46px; height:46px; border-radius:8px; background:var(--white); border:1px solid rgba(37,67,49,0.06); align-items:center; justify-content:center; cursor:pointer; }
+.hamburger .bar{ width:20px; height:2px; background:var(--muted); display:block; position:relative; }
+.hamburger .bar::before, .hamburger .bar::after{ content:""; position:absolute; left:0; width:20px; height:2px; background:var(--muted); }
+.hamburger .bar::before{ top:-6px } .hamburger .bar::after{ top:6px }
 
-  .mobile-menu{ display:none; position:fixed; top:0; left:0; right:0; height:100vh; background: linear-gradient(180deg,var(--bg), #fff); z-index:1200; padding:28px; overflow:auto; }
-  .mobile-menu .close{ display:flex; justify-content:flex-end; }
-  .mobile-menu nav{ display:flex; flex-direction:column; gap:18px; padding-top:20px; align-items:center; }
-  .mobile-menu nav a{ font-size:22px; color:var(--brand); font-weight:700; text-decoration:none; }
+.mobile-menu{ display:none; position:fixed; top:0; left:0; right:0; height:100vh; background: linear-gradient(180deg,var(--bg), #fff); z-index:1200; padding:28px; overflow:auto; }
+.mobile-menu .close{ display:flex; justify-content:flex-end; }
+.mobile-menu nav{ display:flex; flex-direction:column; gap:18px; padding-top:20px; align-items:center; }
+.mobile-menu nav a{ font-size:22px; color:var(--brand); font-weight:700; text-decoration:none; }
 
-  @media (max-width:900px){
+@media (max-width:900px){
     .nav{ display:none }
     .hamburger{ display:flex }
     .logo .wordmark .brand{ font-size:30px }
     .logo .mark{ width:52px; height:52px }
-  }
+}
 
-  /* ======= FOOTER ======= */
-  .site-footer{
+/* ======= FOOTER ======= */
+.site-footer{
     background: var(--brand);
     color: var(--white);
     /* empuja el footer al fondo cuando el contenido es corto */
     margin-top: auto;
-  }
-  .site-footer .container{
+}
+.site-footer .container{
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 28px 22px;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1.4fr;
     gap: 32px;
-  }
-  .site-footer h4{
+}
+.site-footer h4{
     font-size: 16px;
     letter-spacing: .6px;
     text-transform: uppercase;
     margin-bottom: 12px;
     color: var(--accent);
-  }
-  .site-footer p, .site-footer a, .site-footer li{ font-size: 14px; color: rgba(255,255,255,0.92); text-decoration: none; }
-  .site-footer a:hover{ color: var(--accent); }
-  .site-footer ul{ list-style: none; display: grid; gap: 8px; }
+}
+.site-footer p, .site-footer a, .site-footer li{ font-size: 14px; color: rgba(255,255,255,0.92); text-decoration: none; }
+.site-footer a:hover{ color: var(--accent); }
+.site-footer ul{ list-style: none; display: grid; gap: 8px; }
 
-  .brand-block{ display:flex; gap:14px; align-items:center; }
-  .brand-block .mark{ width:52px; height:52px; border-radius:6px; background: linear-gradient(135deg, var(--accent), rgba(240,197,106,0.85)); display:grid; place-items:center; box-shadow: 0 4px 10px rgba(0,0,0,0.12);} 
-  .brand-block .mark span{ color: var(--brand); font-weight: 800; font-family: Georgia, serif; }
-  .brand-block .title{ font-family: Georgia, serif; font-size: 26px; font-weight: 700; }
-  .brand-block .tag{ font-size: 12px; opacity: .85; }
+.brand-block{ display:flex; gap:14px; align-items:center; }
+.brand-block .mark{ width:52px; height:52px; border-radius:6px; background: linear-gradient(135deg, var(--accent), rgba(240,197,106,0.85)); display:grid; place-items:center; box-shadow: 0 4px 10px rgba(0,0,0,0.12);} 
+.brand-block .mark span{ color: var(--brand); font-weight: 800; font-family: Georgia, serif; }
+.brand-block .title{ font-family: Georgia, serif; font-size: 26px; font-weight: 700; }
+.brand-block .tag{ font-size: 12px; opacity: .85; }
 
-  .social{ display:flex; gap:10px; margin-top: 12px; }
-  .social a{ width:38px; height:38px; border-radius: 999px; display:grid; place-items:center; background: rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); }
-  .social a:hover{ background: rgba(255,255,255,0.16); transform: translateY(-1px); }
-  .social svg{ width:18px; height:18px; fill: currentColor; color: var(--white); }
+.social{ display:flex; gap:10px; margin-top: 12px; }
+.social a{ width:38px; height:38px; border-radius: 999px; display:grid; place-items:center; background: rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); }
+.social a:hover{ background: rgba(255,255,255,0.16); transform: translateY(-1px); }
+.social svg{ width:18px; height:18px; fill: currentColor; color: var(--white); }
 
-  .mini{ border-top: 1px solid rgba(255,255,255,0.12); margin-top: 22px; }
-  .mini .container{ padding: 14px 28px; display:flex; gap:12px; align-items:center; justify-content:space-between; }
-  .mini nav{ display:flex; gap:16px; }
-  .mini a{ color: rgba(255,255,255,0.8); font-size: 12px; }
+.mini{ border-top: 1px solid rgba(255,255,255,0.12); margin-top: 22px; }
+.mini .container{ padding: 14px 28px; display:flex; gap:12px; align-items:center; justify-content:space-between; }
+.mini nav{ display:flex; gap:16px; }
+.mini a{ color: rgba(255,255,255,0.8); font-size: 12px; }
 
-  .badge{ display:inline-block; padding:4px 8px; border-radius:999px; background: rgba(240,197,106,0.18); color:var(--accent); font-weight:700; font-size: 11px; letter-spacing:.4px; }
+.badge{ display:inline-block; padding:4px 8px; border-radius:999px; background: rgba(240,197,106,0.18); color:var(--accent); font-weight:700; font-size: 11px; letter-spacing:.4px; }
 
-  @media (max-width: 900px){
+@media (max-width: 900px){
     .site-footer .container{ grid-template-columns: 1fr 1fr; }
-  }
-  @media (max-width: 640px){
+}
+@media (max-width: 640px){
     .site-footer .container{ grid-template-columns: 1fr; }
     .mini .container{ flex-direction: column; align-items: flex-start; gap:8px; }
-  }
+}
 
-  /* ======= MODAL DE RESERVAS ======= */
+/* ======= MODAL BASE (RESERVAS Y BONOS) ======= */
 .modal-backdrop{
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -190,7 +190,42 @@
 }
 .modal-close:hover{ color: var(--brand); }
 
-/* --- Tarjetas de Ubicación (.locations) --- */
+/* --- Botones Genéricos (necesarios para los modales) --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+.btn-primary {
+    background: var(--brand);
+    color: var(--white);
+}
+.btn-secondary {
+    background: var(--bg);
+    color: var(--brand);
+    border: 1px solid rgba(37, 67, 49, 0.15);
+}
+.btn-primary:hover {
+    background: #1e362c; /* Tono más oscuro de brand */
+    transform: translateY(-1px);
+}
+.btn-secondary:hover {
+    background: var(--accent);
+    color: var(--brand);
+}
+.full-width {
+    width: 100%;
+}
+
+
+/* --- Tarjetas de Ubicación (.locations) - Modal Reservas --- */
 .locations{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -204,13 +239,16 @@
     position: relative;
     color: var(--white);
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    cursor: pointer; 
+    border: 2px solid transparent; 
+    transition: border-color 0.2s ease, transform 0.2s ease;
 }
 .location-image{
     width: 100%;
     height: 100%;
     object-fit: cover;
     position: absolute;
-    filter: brightness(0.75); /* Oscurece la imagen de fondo */
+    filter: brightness(0.75); 
     transition: filter 0.3s ease;
 }
 .location-card:hover .location-image{
@@ -235,8 +273,36 @@
     opacity: 0.9;
     margin-bottom: 12px;
 }
+.location-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(37, 67, 49, 0.4); 
+    opacity: 0; 
+    transition: opacity 0.2s ease;
+    z-index: 5; 
+    pointer-events: none; 
+}
+.location-card:hover::before,
+.location-card.selected::before {
+    opacity: 1;
+}
 
-/* --- Formulario --- */
+.location-card.selected {
+    border-color: var(--accent); 
+    transform: translateY(-2px);
+}
+
+.location-card.selected .location-info button.btn-secondary {
+    background: var(--accent); 
+    color: var(--brand);
+    font-weight: 700;
+}
+
+/* --- Formulario Reservas --- */
 .form-section-title{
     font-size: 16px;
     color: var(--muted);
@@ -267,240 +333,311 @@
     color: var(--muted);
     opacity: 0.7;
 }
-/* Estilo específico para los inputs de tipo date y time */
 input[type="date"], input[type="time"] {
     appearance: none;
     -webkit-appearance: none;
     cursor: text;
 }
-
-/* --- Efecto de selección en tarjetas de ubicación --- */
-.location-card {
-    /* ... (CSS existente para location-card) ... */
-    cursor: pointer; /* Indicar que es clickable */
-    position: relative;
-    border: 2px solid transparent; /* Para el borde al seleccionar */
-    transition: border-color 0.2s ease, transform 0.2s ease;
-}
-
-.location-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(37, 67, 49, 0.4); /* Capa verde semi-transparente */
-    opacity: 0; /* Inicialmente oculto */
-    transition: opacity 0.2s ease;
-    z-index: 5; /* Asegurarse de que esté sobre la imagen pero debajo del texto */
-    pointer-events: none; /* Permite clics a través del overlay */
-}
-
-/* Estado al pasar el ratón o seleccionar */
-.location-card:hover::before,
-.location-card.selected::before {
-    opacity: 1;
-}
-
-.location-card.selected {
-    border-color: var(--accent); /* Borde dorado al seleccionar */
-    transform: translateY(-2px);
-}
-
-.location-card.selected .location-info button.btn-secondary {
-    background: var(--accent); /* Fondo dorado en el botón al seleccionar */
-    color: var(--brand);
-    font-weight: 700;
-}
-
-/* Ajuste del formulario para el intercambio de campos */
-.reservation-form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-}
-/* Asegurarse de que el botón de confirmar ocupe todo el ancho */
 .reservation-form .full-width {
     grid-column: 1 / -1;
 }
 
 /* =========================================================
-   ESTILOS CARTA DIGITAL (carta.html)
-   ========================================================= */
+   ESTILOS CARTA DIGITAL (carta.html)
+   ========================================================= */
 
 .menu-page{
-  max-width: 1140px;
-  margin: 40px auto 60px;
-  padding: 0 20px 40px;
+    max-width: 1140px;
+    margin: 40px auto 60px;
+    padding: 0 20px 40px;
 }
-
-/* Hero de la carta */
 .menu-hero{
-  text-align: left;
-  margin-bottom: 28px;
+    text-align: left;
+    margin-bottom: 28px;
 }
 .menu-hero h1{
-  font-family: "Georgia", serif;
-  font-size: 34px;
-  color: var(--brand);
-  letter-spacing: .5px;
+    font-family: "Georgia", serif;
+    font-size: 34px;
+    color: var(--brand);
+    letter-spacing: .5px;
 }
 .menu-hero p{
-  margin-top: 6px;
-  color: var(--muted);
-  max-width: 52ch;
+    margin-top: 6px;
+    color: var(--muted);
+    max-width: 52ch;
 }
-
-/* Navegación interna de categorías */
 .menu-categorias{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
 }
 .menu-categorias a{
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: .6px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.9);
-  color: var(--muted);
-  border: 1px solid rgba(37,67,49,0.10);
-  box-shadow: 0 4px 10px rgba(37,67,49,0.06);
-  transition: background .18s ease, transform .15s ease, box-shadow .18s ease, color .18s ease;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .6px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.9);
+    color: var(--muted);
+    border: 1px solid rgba(37,67,49,0.10);
+    box-shadow: 0 4px 10px rgba(37,67,49,0.06);
+    transition: background .18s ease, transform .15s ease, box-shadow .18s ease, color .18s ease;
 }
 .menu-categorias a:hover{
-  background: var(--accent);
-  color: var(--brand);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    background: var(--accent);
+    color: var(--brand);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
 }
 .menu-categorias a.active{
-  background: var(--brand);
-  color: #fff;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.16);
-  border-color: transparent;
+    background: var(--brand);
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.16);
+    border-color: transparent;
 }
-
-/* Secciones de la carta */
 .menu-section{
-  margin-top: 26px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(37,67,49,0.10);
+    margin-top: 26px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(37,67,49,0.10);
 }
 .menu-section:first-of-type{
-  border-top: none;
-  padding-top: 0;
+    border-top: none;
+    padding-top: 0;
 }
 .menu-section h2{
-  font-family: "Georgia", serif;
-  font-size: 20px;
-  color: var(--brand);
-  margin-bottom: 14px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
+    font-family: "Georgia", serif;
+    font-size: 20px;
+    color: var(--brand);
+    margin-bottom: 14px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
 }
-
-/* Grid y tarjetas */
 .menu-grid{
-  display: grid;
-  grid-template-columns: 1.5fr 1.5fr;
-  gap: 14px 26px;
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr;
+    gap: 14px 26px;
 }
 .menu-grid-bebidas{
-  grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 }
 
 .menu-card{
-  background: #fff;
-  border-radius: 10px;
-  padding: 12px 14px;
-  border: 1px solid rgba(37,67,49,0.08);
-  box-shadow: 0 4px 14px rgba(37,67,49,0.06);
-  position: relative;
-  overflow: hidden;
+    background: #fff;
+    border-radius: 10px;
+    padding: 12px 14px;
+    border: 1px solid rgba(37,67,49,0.08);
+    box-shadow: 0 4px 14px rgba(37,67,49,0.06);
+    position: relative;
+    overflow: hidden;
 }
 .menu-card::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top left,
-              rgba(240,197,106,0.16),
-              rgba(255,255,255,0));
-  opacity: .9;
-  pointer-events: none;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left,
+                rgba(240,197,106,0.16),
+                rgba(255,255,255,0));
+    opacity: .9;
+    pointer-events: none;
 }
 .menu-card h3{
-  position: relative;
-  z-index: 1;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--brand);
-  margin-bottom: 4px;
+    position: relative;
+    z-index: 1;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--brand);
+    margin-bottom: 4px;
 }
 .menu-card p{
-  position: relative;
-  z-index: 1;
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 6px;
+    position: relative;
+    z-index: 1;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 6px;
 }
 .menu-card .precio{
-  position: relative;
-  z-index: 1;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--accent);
-  letter-spacing: .04em;
+    position: relative;
+    z-index: 1;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: .04em;
 }
-
-/* Imagen dentro de la tarjeta */
 .menu-card-media{
-  width: 100%;
-  height: 130px;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.10);
-  position: relative;
-  overflow: hidden;
+    width: 100%;
+    height: 130px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.10);
+    position: relative;
+    overflow: hidden;
 }
 .menu-card-media::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.35), transparent 45%);
-  pointer-events: none;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.35), transparent 45%);
+    pointer-events: none;
 }
-
-/* Responsive */
 @media (max-width: 900px){
-  .menu-page{
-    margin-top: 28px;
-  }
-  .menu-grid,
-  .menu-grid-bebidas{
-    grid-template-columns: 1fr;
-  }
+    .menu-page{
+        margin-top: 28px;
+    }
+    .menu-grid,
+    .menu-grid-bebidas{
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 600px){
+    .menu-hero h1{
+        font-size: 26px;
+    }
+    .menu-hero p{
+        font-size: 14px;
+    }
+    .menu-categorias{
+        gap: 6px;
+    }
+    .menu-categorias a{
+        font-size: 12px;
+        padding: 5px 12px;
+    }
+}
+/* =========================================================
+   MODAL BONOS DE REGALO
+   ========================================================= */
+
+.giftcard-modal-content {
+    max-width: 480px; 
+    padding: 40px 30px;
+    background: var(--bg); 
+    position: relative;
+    text-align: center; 
 }
 
-@media (max-width: 600px){
-  .menu-hero h1{
-    font-size: 26px;
-  }
-  .menu-hero p{
-    font-size: 14px;
-  }
-  .menu-categorias{
-    gap: 6px;
-  }
-  .menu-categorias a{
-    font-size: 12px;
-    padding: 5px 12px;
-  }
+/* Reajustar la posición del botón de cierre */
+.giftcard-modal-content .modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 20;
+}
+
+/* Cabecera y Título */
+.giftcard-header {
+    margin-bottom: 24px;
+}
+.giftcard-title {
+    font-size: 26px; 
+    font-weight: 700; 
+    color: var(--brand);
+    margin-top: 12px;
+    letter-spacing: 0.5px;
+    font-family: 'Georgia', serif; 
+}
+.giftcard-title strong, .giftcard-title b {
+    font-weight: 700; 
+}
+
+/* Logo "G" dentro del modal */
+.giftcard-logo-g {
+    width: 70px; 
+    height: 70px;
+    margin: 0 auto;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--accent), rgba(240,197,106,0.85));
+    display: grid;
+    place-items: center;
+}
+.giftcard-logo-g svg {
+    width: 40px; 
+    height: 40px;
+    display: block;
+    color: var(--brand); 
+}
+/* Estilo del texto "G" en el SVG si se usa texto simple */
+.giftcard-logo-g svg text {
+    fill: var(--brand);
+    font-weight: 800;
+    font-size: 40px; 
+    font-family: "Georgia", serif; 
+}
+
+
+/* Formulario de Gift Card */
+.giftcard-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+.giftcard-form input,
+.giftcard-form select {
+    padding: 14px 16px; 
+    border: 1px solid rgba(37,67,49,0.1);
+    border-radius: 6px;
+    font-size: 15px;
+    color: var(--brand);
+    background: var(--white); /* <--- Fondo blanco */
+    width: 100%;
+    box-shadow: none;
+}
+.giftcard-form input:focus,
+.giftcard-form select:focus,
+.giftcard-form textarea:focus {
+    border-color: var(--accent);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(240,197,106,0.3);
+}
+.giftcard-form input::placeholder,
+.giftcard-form textarea::placeholder {
+    color: #a0a0a0; /* <--- Gris claro */
+    opacity: 1;
+}
+
+/* Textarea y botón de pago ocupan todo el ancho */
+.giftcard-form textarea,
+.giftcard-form .full-width {
+    grid-column: 1 / -1;
+}
+
+.giftcard-form textarea {
+    padding: 14px 16px; 
+    border: 1px solid rgba(37,67,49,0.1);
+    border-radius: 6px;
+    font-size: 15px;
+    color: var(--brand);
+    background: var(--white); /* <--- Fondo blanco */
+    resize: none; 
+    min-height: 100px; 
+}
+
+/* Estilo del botón (ajustado para lucir como la maqueta del bono) */
+.giftcard-form .btn-primary {
+    background: var(--brand); 
+    color: var(--white);
+    margin-top: 8px;
+    font-size: 16px;
+    padding: 16px 20px;
+    border-radius: 8px;
+}
+.giftcard-form .btn-primary:hover {
+    background: #1e362c;
+    transform: translateY(-1px);
+}
+
+/* Responsive para el formulario de Gift Card */
+@media (max-width: 550px) {
+    .giftcard-modal-content {
+        max-width: 100%; 
+        padding: 30px 20px;
+    }
+    .giftcard-form {
+        grid-template-columns: 1fr; 
+    }
 }
