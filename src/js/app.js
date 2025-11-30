@@ -24,6 +24,7 @@ const closeGiftcardBtn = document.getElementById("closeGiftcardBtn");
 // Selectores de la navegación interna de la carta (carta.html)
 const categoryNav = document.querySelector(".menu-categorias");
 const categoryLinks = categoryNav ? categoryNav.querySelectorAll("a") : [];
+const headerNavLinks = document.querySelectorAll(".nav a, .mobile-menu nav a");
 
 let categorySections = [];
 if (categoryLinks.length) {
@@ -166,6 +167,44 @@ function handleCategoryClick(e) {
     });
 }
 
+// --- Resaltado activo del navbar según la vista/anchor ---
+function setHeaderActiveLink() {
+    if (!headerNavLinks.length) return;
+
+    const page = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
+    const hash = window.location.hash;
+
+    let fallback = null;
+    let applied = false;
+
+    headerNavLinks.forEach((link) => {
+        link.classList.remove("active");
+
+        const href = link.getAttribute("href") || "";
+        const [hrefPath, hrefHashPart] = href.split("#");
+        const isHashOnly = href.startsWith("#");
+
+        const targetPage = (isHashOnly ? page : hrefPath || page).toLowerCase();
+        const targetHash = isHashOnly ? href : hrefHashPart ? `#${hrefHashPart}` : "";
+
+        const samePage =
+            targetPage === page || (targetPage === "" && page === "index.html");
+
+        if (!samePage) return;
+
+        if (hash && targetHash && hash === targetHash) {
+            link.classList.add("active");
+            applied = true;
+        } else if (!hash && !fallback) {
+            fallback = link;
+        }
+    });
+
+    if (!applied && fallback) {
+        fallback.classList.add("active");
+    }
+}
+
 // ====================================================================
 //        3. ASIGNACIÓN DE EVENTOS
 // ====================================================================
@@ -231,3 +270,14 @@ if (categoryLinks.length) {
     window.addEventListener("scroll", setActiveCategoryOnScroll);
     window.addEventListener("load", setActiveCategoryOnScroll);
 }
+
+// --- Navbar: activar estado visual según ruta/hash ---
+headerNavLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+        headerNavLinks.forEach((item) => item.classList.remove("active"));
+        link.classList.add("active");
+    });
+});
+window.addEventListener("hashchange", setHeaderActiveLink);
+window.addEventListener("load", setHeaderActiveLink);
+setHeaderActiveLink();

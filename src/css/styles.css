@@ -51,11 +51,50 @@ body{
 .logo .wordmark .tag{ font-size:12px; color:var(--muted); margin-top:2px; font-weight:600; }
 
 .nav{ display:flex; align-items:center; gap:32px; }
-.nav a{ color:var(--muted); text-decoration:none; font-weight:700; letter-spacing:0.6px; }
-.nav a:hover{ color:var(--brand) }
+.nav a{
+    color:var(--muted);
+    text-decoration:none;
+    font-weight:700;
+    letter-spacing:0.6px;
+    position: relative;
+    padding: 8px 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.18s ease, transform 0.18s ease;
+}
+.nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:-10px;
+    height:3px;
+    background: linear-gradient(90deg, var(--accent), rgba(37,67,49,0.2), var(--accent));
+    border-radius:999px;
+    transform: scaleX(0.35);
+    opacity:0;
+    transform-origin:center;
+    transition: transform 0.22s ease, opacity 0.22s ease, background 0.22s ease;
+}
+.nav a:hover,
+.nav a:focus-visible{
+    color:var(--brand);
+    transform: translateY(-1px);
+    outline: none;
+}
+.nav a:hover::after,
+.nav a:focus-visible::after{
+    opacity:1;
+    transform: scaleX(1);
+}
 .nav a.active{
     color: var(--brand);
-    border-bottom: 2px solid var(--accent);
+}
+.nav a.active::after{
+    opacity:1;
+    transform: scaleX(1);
+    background: linear-gradient(90deg, var(--accent), var(--brand), var(--accent));
 }
 
 .actions{ display:flex; gap:12px; align-items:center; }
@@ -68,7 +107,29 @@ body{
 .mobile-menu{ display:none; position:fixed; top:0; left:0; right:0; height:100vh; background: linear-gradient(180deg,var(--bg), #fff); z-index:1200; padding:28px; overflow:auto; }
 .mobile-menu .close{ display:flex; justify-content:flex-end; }
 .mobile-menu nav{ display:flex; flex-direction:column; gap:18px; padding-top:20px; align-items:center; }
-.mobile-menu nav a{ font-size:22px; color:var(--brand); font-weight:700; text-decoration:none; }
+.mobile-menu nav a{
+    font-size:22px;
+    color:var(--brand);
+    font-weight:700;
+    text-decoration:none;
+    padding: 10px 16px;
+    width: 100%;
+    text-align: center;
+    border-radius: 10px;
+    transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+.mobile-menu nav a:hover,
+.mobile-menu nav a:focus-visible{
+    background: rgba(240,197,106,0.28);
+    color: var(--brand);
+    transform: translateY(-1px);
+    outline: none;
+}
+.mobile-menu nav a.active{
+    background: var(--brand);
+    color: var(--white);
+    box-shadow: 0 10px 24px rgba(37,67,49,0.18);
+}
 
 @media (max-width:900px){
     .nav{ display:none }
