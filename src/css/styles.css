@@ -192,7 +192,7 @@ body{
 
 /* ----- Main ----- */
 .hero {
-    background-image: url('/src/image/imghero.jpg');
+    background-image: url('https://ik.imagekit.io/swze1zp8e/imghero.jpg');
     background-size: cover;
     background-position: top;
     height: 500px;
