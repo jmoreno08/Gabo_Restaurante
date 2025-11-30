@@ -191,6 +191,11 @@ body{
 }
 
 /* ----- Main ----- */
+
+main{
+    flex-grow:1;
+}
+
 .hero {
     background-image: url('https://ik.imagekit.io/swze1zp8e/imghero.jpg');
     background-size: cover;
