@@ -168,6 +168,53 @@
     </div>
   </div>
 
+  <!-- Modal de Reservas unificado -->
+  <div class="modal-backdrop" id="reservasModal" aria-modal="true" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Realiza tu Reserva ✨</h2>
+        <button class="modal-close" id="closeModalBtn" aria-label="Cerrar ventana de reserva">X</button>
+      </div>
+      
+      <div class="locations">
+        <div class="location-card" data-location="medellin">
+          <img src="https://image.pollinations.ai/prompt/interior%20stone%20fireplace%20restaurant%20dim%20light%20cozy" alt="Interior Gabo Medell��n" class="location-image">
+          <div class="location-info">
+            <h3>Medell��n</h3>
+            <p>Calle 12 #43E-25</p>
+            <button class="btn btn-secondary">Reservar</button>
+          </div>
+        </div>
+        <div class="location-card" data-location="envigado">
+          <img src="https://image.pollinations.ai/prompt/restaurant%20courtyard%20interior%20garden%20dim%20light%20greenery" alt="Patio Gabo Envigado" class="location-image">
+          <div class="location-info">
+            <h3>Envigado</h3>
+            <p>Calle 30 Sur #43A-29</p>
+            <button class="btn btn-secondary">Reservar</button>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="form-section-title">Detalles de Reserva</h3>
+      
+      <form class="reservation-form" id="reservationForm" novalidate>
+        <div class="form-feedback" id="reservationFeedback" role="alert" aria-live="polite"></div>
+
+        <input type="date" id="reservationDate" placeholder="Fecha" aria-label="Fecha de reserva" required>
+        <input type="number" id="reservationPeople" placeholder="Numero de personas" aria-label="Numero de personas" min="1" required>
+        <input type="time" id="reservationTime" placeholder="Hora" aria-label="Hora de reserva" required>
+        
+        <input type="text" id="reservationGiftcard" placeholder="Codigo de giftcard" aria-label="Codigo de giftcard">
+        <input type="email" id="reservationEmail" placeholder="Correo electronico" aria-label="Correo electronico" required>
+
+        <input type="text" id="reservationName" placeholder="Nombre completo" aria-label="Nombre completo" required>
+        <input type="tel" id="reservationPhone" placeholder="Numero telefonico" aria-label="Numero telefonico" required>
+        
+        <button type="submit" class="btn btn-primary full-width">Confirmar Reserva</button>
+      </form>
+    </div>
+  </div>
+
   <main class="container" role="main">
     <div class="grid">
       <!-- LEFT: contact form -->
@@ -308,23 +355,24 @@
     </div>
   </footer>
 
+<script type="module" src="src/js/app.js"></script>
 <script>
   // year
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // mobile menu toggles
+  // mobile menu toggles (usa los handlers globales si ya existen)
   const hambtn = document.getElementById('hambtn');
   const mobileMenu = document.getElementById('mobileMenu');
   const closeBtn = document.getElementById('closeBtn');
 
-  function openMenu(){
-    mobileMenu.style.display = 'flex';
-  }
-  function closeMenu(){
-    mobileMenu.style.display = 'none';
-  }
-  hambtn && hambtn.addEventListener('click', openMenu);
-  closeBtn && closeBtn.addEventListener('click', closeMenu);
+  const openMenuFallback = () => { if (mobileMenu) mobileMenu.style.display = 'flex'; };
+  const closeMenuFallback = () => { if (mobileMenu) mobileMenu.style.display = 'none'; };
+
+  const openMenuHandler = window.openMenu || openMenuFallback;
+  const closeMenuHandler = window.closeMenu || closeMenuFallback;
+
+  hambtn && hambtn.addEventListener('click', openMenuHandler);
+  closeBtn && closeBtn.addEventListener('click', closeMenuHandler);
 
   // simple form demo validation
   const form = document.getElementById('contactForm');

@@ -15,6 +15,11 @@ const closeModalBtn = document.getElementById("closeModalBtn");
 // Selectores de las Tarjetas de Ubicación
 const locationCards = document.querySelectorAll(".location-card");
 
+// Selectores del formulario de reservas
+const reservationForm = document.getElementById("reservationForm");
+const reservationFeedback = document.getElementById("reservationFeedback");
+const reservationInputs = reservationForm ? Array.from(reservationForm.querySelectorAll("input")) : [];
+
 // --- INICIO CÓDIGO NUEVO AGREGADO: SELECTORES BONOS DE REGALO ---
 const giftcardLink = document.getElementById("openGiftcardModal");
 const giftcardModal = document.getElementById("giftcardModal");
@@ -77,6 +82,93 @@ function closeReservasModal() {
     document.body.style.overflow = "";
 
     // Deseleccionar tarjetas al cerrar
+    locationCards.forEach((card) => card.classList.remove("selected"));
+    reservationForm?.reset();
+    reservationInputs.forEach((input) => flagReservationField(input, false));
+    clearReservationFeedback();
+}
+
+// Validación del formulario de reservas y feedback
+function setReservationFeedback(message, type = "error") {
+    if (!reservationFeedback) return;
+    reservationFeedback.textContent = message;
+    reservationFeedback.classList.add("is-visible");
+    reservationFeedback.classList.remove("is-error", "is-success");
+    reservationFeedback.classList.add(type === "success" ? "is-success" : "is-error");
+}
+
+function clearReservationFeedback() {
+    if (!reservationFeedback) return;
+    reservationFeedback.textContent = "";
+    reservationFeedback.classList.remove("is-visible", "is-error", "is-success");
+}
+
+function flagReservationField(input, hasError) {
+    if (!input) return;
+    if (hasError) {
+        input.classList.add("input-invalid");
+        input.setAttribute("aria-invalid", "true");
+    } else {
+        input.classList.remove("input-invalid");
+        input.removeAttribute("aria-invalid");
+    }
+}
+
+function validateReservationForm() {
+    if (!reservationForm) return false;
+
+    let isValid = true;
+    const phonePattern = /^[0-9+()\\s-]{7,}$/;
+    const requiredFields = [
+        document.getElementById("reservationDate"),
+        document.getElementById("reservationPeople"),
+        document.getElementById("reservationTime"),
+        document.getElementById("reservationEmail"),
+        document.getElementById("reservationName"),
+        document.getElementById("reservationPhone"),
+    ];
+
+    requiredFields.forEach((input) => {
+        if (!input) return;
+
+        const value = input.value.trim();
+        let fieldValid = value !== "";
+
+        if (input.type === "number") {
+            const num = Number(value);
+            fieldValid = fieldValid && !Number.isNaN(num) && num >= 1;
+        }
+        if (input.type === "email") {
+            fieldValid = fieldValid && input.checkValidity();
+        }
+        if (input.type === "tel") {
+            fieldValid = fieldValid && phonePattern.test(value);
+        }
+
+        flagReservationField(input, !fieldValid);
+        if (!fieldValid) isValid = false;
+    });
+
+    return isValid;
+}
+
+function handleReservationSubmit(e) {
+    e.preventDefault();
+
+    clearReservationFeedback();
+    const isValid = validateReservationForm();
+
+    if (!isValid) {
+        setReservationFeedback("Por favor completa los campos obligatorios antes de confirmar.", "error");
+        return;
+    }
+
+    setReservationFeedback(
+        "Su reserva se ha guardado y se confirmara por una notificacion de correo electronico.",
+        "success"
+    );
+
+    reservationForm.reset();
     locationCards.forEach((card) => card.classList.remove("selected"));
 }
 
@@ -221,6 +313,19 @@ closeModalBtn?.addEventListener("click", closeReservasModal);
 locationCards.forEach((card) => {
     card.addEventListener("click", selectLocationCard);
 });
+
+// --- Eventos del formulario de reservas ---
+if (reservationForm) {
+    reservationForm.addEventListener("submit", handleReservationSubmit);
+    reservationInputs.forEach((input) => {
+        input.addEventListener("input", () => {
+            flagReservationField(input, false);
+            if (reservationFeedback?.classList.contains("is-error")) {
+                clearReservationFeedback();
+            }
+        });
+    });
+}
 
 // --- Cerrar modal de Reservas haciendo clic en el fondo ---
 reservasModal?.addEventListener("click", (e) => {

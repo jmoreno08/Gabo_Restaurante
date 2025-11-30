@@ -190,6 +190,74 @@ body{
     .mini .container{ flex-direction: column; align-items: flex-start; gap:8px; }
 }
 
+/* ----- HERO ----- */
+.hero {
+    background-image: url('/src/image/imghero.jpg');
+    background-size: cover;
+    background-position: top;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.hero-text h1 {
+    color: white;
+    text-align: center;
+    max-width: 600px;
+    font-size: 1.8rem;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);           
+}
+
+/* ----- MENÚ ----- */
+.menu-section-main {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.menu-section-main h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.menu-main-grid {
+    display: flex;
+    justify-content: center; 
+    gap: 50px;
+    flex-wrap: wrap;
+    max-width: 900px; 
+    margin: 0 auto;
+}
+
+.menu-main-item {
+    background: #f7ecd9;
+    border: 1px solid #d8c4a7;
+    border-radius: 6px;
+    width: 260px;
+    padding-bottom: 15px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.menu-main-item:hover {
+    transform: scale(1.03);
+}
+
+.menu-main-item img {
+    width: 100%;
+    border-bottom: 1px solid #d8c4a7;
+}
+
+.menu-main-item h3 {
+    margin: 10px 0 5px;
+    font-size: 1.1rem;
+}
+
+.price {
+    font-weight: bold;
+}
+
 /* ======= MODAL BASE (RESERVAS Y BONOS) ======= */
 .modal-backdrop{
     position: fixed;
@@ -377,6 +445,27 @@ body{
     grid-template-columns: 1fr 1fr;
     gap: 12px;
 }
+.form-feedback{
+    display: none;
+    grid-column: 1 / -1;
+    margin-bottom: 6px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid transparent;
+}
+.form-feedback.is-visible{ display: block; }
+.form-feedback.is-error{
+    background: #fff1f1;
+    color: #7a1f1f;
+    border-color: #e3a6a6;
+}
+.form-feedback.is-success{
+    background: #e7f5ed;
+    color: #1f4d38;
+    border-color: #a8d5bd;
+}
 .reservation-form input{
     padding: 12px 16px;
     border: 1px solid rgba(37,67,49,0.1);
@@ -384,6 +473,10 @@ body{
     font-size: 16px;
     color: var(--brand);
     background: var(--white);
+}
+.reservation-form input.input-invalid{
+    border-color: #d14343;
+    box-shadow: 0 0 0 2px rgba(209,67,67,0.18);
 }
 .reservation-form input:focus{
     border-color: var(--accent);

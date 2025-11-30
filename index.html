@@ -38,6 +38,44 @@
         </div>
     </header>
 
+    <main role="main">
+
+        <section class="hero">
+        <div class="hero-text">
+            <h1>Sabores mágicos que te transportan a las historias más extraordinarias</h1>
+        </div>
+        </section>
+
+            <!-- Menú -->
+    <section class="menu-section-main">
+        <h2>Menú destacado</h2>
+
+        <div class="menu-main-grid">
+
+            <div class="menu-main-item">
+                <img src="/src/image/imgposta.jpg" alt="Posta Cartagenera">
+                <h3>Posta Cartagenera</h3>
+                <p class="price">$59.000</p>
+            </div>
+
+            <div class="menu-main-item">
+                <img src="/src/image/imgcostillas.jpg" alt="Costillas BBQ de Guayaba">
+                <h3>Costillas BBQ de Guayaba</h3>
+                <p class="price">$45.000</p>
+            </div>
+
+            <div class="menu-main-item">
+                <img src="/src/image/imgmorrillo.jpg" alt="Morrillo a Caballo">
+                <h3>Morrillo a Caballo</h3>
+                <p class="price">$57.000</p>
+            </div>
+
+        </div>
+    </section>
+    </main>
+
+
+
     <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
         <div class="close">
             <button id="closeBtn" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--muted)">✕</button>
@@ -81,16 +119,17 @@
 
             <h3 class="form-section-title">Detalles de Reserva</h3>
             
-            <form class="reservation-form">
-                <input type="date" placeholder="Fecha" aria-label="Fecha de reserva">
-                <input type="number" placeholder="Número de personas" aria-label="Número de personas">
-                <input type="time" placeholder="Hora" aria-label="Hora de reserva">
+            <form class="reservation-form" id="reservationForm" novalidate>
+                <div class="form-feedback" id="reservationFeedback" role="alert" aria-live="polite"></div>
+                <input type="date" id="reservationDate" placeholder="Fecha" aria-label="Fecha de reserva" required>
+                <input type="number" id="reservationPeople" placeholder="Numero de personas" aria-label="Numero de personas" min="1" required>
+                <input type="time" id="reservationTime" placeholder="Hora" aria-label="Hora de reserva" required>
                 
-                <input type="text" placeholder="Código de giftcard" aria-label="Código de giftcard">
-                <input type="email" placeholder="Correo electrónico" aria-label="Correo electrónico">
+                <input type="text" id="reservationGiftcard" placeholder="Codigo de giftcard" aria-label="Codigo de giftcard">
+                <input type="email" id="reservationEmail" placeholder="Correo electronico" aria-label="Correo electronico" required>
 
-                <input type="text" placeholder="Nombre completo" aria-label="Nombre completo">
-                <input type="tel" placeholder="Número telefónico" aria-label="Número telefónico">
+                <input type="text" id="reservationName" placeholder="Nombre completo" aria-label="Nombre completo" required>
+                <input type="tel" id="reservationPhone" placeholder="Numero telefonico" aria-label="Numero telefonico" required>
                 
                 <button type="submit" class="btn btn-primary full-width">Confirmar Reserva</button>
             </form>
