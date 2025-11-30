@@ -190,7 +190,7 @@ body{
     .mini .container{ flex-direction: column; align-items: flex-start; gap:8px; }
 }
 
-/* ----- HERO ----- */
+/* ----- Main ----- */
 .hero {
     background-image: url('/src/image/imghero.jpg');
     background-size: cover;
