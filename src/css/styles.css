@@ -483,6 +483,17 @@ main{
     border-color: #d14343;
     box-shadow: 0 0 0 2px rgba(209,67,67,0.18);
 }
+
+.giftcard-form input.input-invalid,
+.giftcard-form select.input-invalid,
+.giftcard-form textarea.input-invalid{
+    border-color: #d14343;
+    box-shadow: 0 0 0 2px rgba(209,67,67,0.18);
+}
+
+.is-hidden{
+    display: none !important;
+}
 .reservation-form input:focus{
     border-color: var(--accent);
     outline: none;

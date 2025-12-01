@@ -24,6 +24,19 @@ const reservationInputs = reservationForm ? Array.from(reservationForm.querySele
 const giftcardLink = document.getElementById("openGiftcardModal");
 const giftcardModal = document.getElementById("giftcardModal");
 const closeGiftcardBtn = document.getElementById("closeGiftcardBtn");
+const giftcardForm = document.getElementById("giftcardForm");
+const giftcardFeedback = document.getElementById("giftcardFeedback");
+const giftcardValueSelect = document.getElementById("giftcardValue");
+const giftcardCustomWrapper = document.getElementById("customAmountWrapper");
+const giftcardCustomAmount = document.getElementById("giftcardCustomAmount");
+const giftcardDate = document.getElementById("giftcardDate");
+const giftcardRecipientName = document.getElementById("giftcardRecipientName");
+const giftcardRecipientEmail = document.getElementById("giftcardRecipientEmail");
+const giftcardSenderName = document.getElementById("giftcardSenderName");
+const giftcardSenderEmail = document.getElementById("giftcardSenderEmail");
+const giftcardFields = giftcardForm
+    ? Array.from(giftcardForm.querySelectorAll("input, select, textarea"))
+    : [];
 // --- FIN CÓDIGO NUEVO AGREGADO ---
 
 // Selectores de la navegación interna de la carta (carta.html)
@@ -173,12 +186,24 @@ function handleReservationSubmit(e) {
 }
 
 // --- INICIO CÓDIGO NUEVO AGREGADO: FUNCIONES BONOS DE REGALO ---
+function resetGiftcardForm(preserveFeedback = false) {
+    if (!giftcardForm) return;
+
+    giftcardForm.reset();
+    giftcardFields.forEach((field) => flagGiftcardField(field, false));
+    if (!preserveFeedback) {
+        clearGiftcardFeedback();
+    }
+    toggleCustomAmountField();
+}
+
 function openGiftcardModal(e) {
     if (!giftcardModal) return;
     e.preventDefault();
     giftcardModal.classList.add("active");
     giftcardModal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
+    toggleCustomAmountField();
 }
 
 function closeGiftcardModal() {
@@ -186,8 +211,118 @@ function closeGiftcardModal() {
     giftcardModal.classList.remove("active");
     giftcardModal.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
+    resetGiftcardForm();
 }
-// --- FIN CÓDIGO NUEVO AGREGADO ---
+
+function setGiftcardFeedback(message, type = "error") {
+    if (!giftcardFeedback) return;
+
+    giftcardFeedback.textContent = message;
+    giftcardFeedback.classList.add("is-visible");
+    giftcardFeedback.classList.remove("is-error", "is-success");
+    giftcardFeedback.classList.add(type === "success" ? "is-success" : "is-error");
+}
+
+function clearGiftcardFeedback() {
+    if (!giftcardFeedback) return;
+
+    giftcardFeedback.textContent = "";
+    giftcardFeedback.classList.remove("is-visible", "is-error", "is-success");
+}
+
+function flagGiftcardField(field, hasError) {
+    if (!field) return;
+
+    if (hasError) {
+        field.classList.add("input-invalid");
+        field.setAttribute("aria-invalid", "true");
+    } else {
+        field.classList.remove("input-invalid");
+        field.removeAttribute("aria-invalid");
+    }
+}
+
+function toggleCustomAmountField() {
+    if (!giftcardCustomWrapper) return;
+    const showCustom = giftcardValueSelect?.value === "custom";
+
+    giftcardCustomWrapper.classList.toggle("is-hidden", !showCustom);
+
+    if (!showCustom && giftcardCustomAmount) {
+        giftcardCustomAmount.value = "";
+        flagGiftcardField(giftcardCustomAmount, false);
+    }
+}
+
+function validateGiftcardForm() {
+    if (!giftcardForm) return false;
+
+    let isValid = true;
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const requiredFields = [
+        giftcardValueSelect,
+        giftcardDate,
+        giftcardRecipientName,
+        giftcardRecipientEmail,
+        giftcardSenderName,
+        giftcardSenderEmail,
+    ];
+
+    requiredFields.forEach((field) => {
+        if (!field) return;
+
+        const value = field.value.trim();
+        let fieldValid = value !== "";
+
+        if (field === giftcardDate && fieldValid) {
+            const selectedDate = new Date(value);
+            fieldValid = !Number.isNaN(selectedDate.getTime()) && selectedDate >= today;
+        }
+
+        if (field.type === "email") {
+            fieldValid = fieldValid && field.checkValidity();
+        }
+
+        if (field.type === "text") {
+            fieldValid = fieldValid && value.length >= 2;
+        }
+
+        flagGiftcardField(field, !fieldValid);
+        if (!fieldValid) isValid = false;
+    });
+
+    if (giftcardValueSelect?.value === "custom") {
+        const customValue = giftcardCustomAmount?.value.trim() || "";
+        const numericValue = Number(customValue);
+        const customValid =
+            customValue !== "" &&
+            !Number.isNaN(numericValue) &&
+            numericValue >= Number(giftcardCustomAmount?.min || 0);
+
+        flagGiftcardField(giftcardCustomAmount, !customValid);
+        if (!customValid) isValid = false;
+    }
+
+    return isValid;
+}
+
+function handleGiftcardSubmit(e) {
+    e.preventDefault();
+
+    clearGiftcardFeedback();
+    const isValid = validateGiftcardForm();
+
+    if (!isValid) {
+        setGiftcardFeedback("Completa los datos obligatorios para crear tu bono de regalo.", "error");
+        return;
+    }
+
+    resetGiftcardForm(true);
+    setGiftcardFeedback("Listo. Te enviaremos un enlace para finalizar el pago del bono.", "success");
+}
+// --- FIN C?DIGO NUEVO AGREGADO ---
 
 // --- Selección de Tarjeta de Ubicación ---
 function selectLocationCard(e) {
@@ -325,6 +460,30 @@ if (reservationForm) {
             }
         });
     });
+}
+
+
+if (giftcardForm) {
+    giftcardForm.addEventListener("submit", handleGiftcardSubmit);
+
+    giftcardValueSelect?.addEventListener("change", () => {
+        toggleCustomAmountField();
+        flagGiftcardField(giftcardValueSelect, false);
+        if (giftcardFeedback?.classList.contains("is-error")) {
+            clearGiftcardFeedback();
+        }
+    });
+
+    giftcardFields.forEach((field) => {
+        field.addEventListener("input", () => {
+            flagGiftcardField(field, false);
+            if (giftcardFeedback?.classList.contains("is-error")) {
+                clearGiftcardFeedback();
+            }
+        });
+    });
+
+    toggleCustomAmountField();
 }
 
 // --- Cerrar modal de Reservas haciendo clic en el fondo ---

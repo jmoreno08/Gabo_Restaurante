@@ -149,24 +149,31 @@
                 <h2 class="giftcard-title">Crea una <b>Gift Card</b> a la medida</h2>
             </div>
 
-            <form class="giftcard-form">
-                <select aria-label="Valor del Gift Card">
-                    <option selected disabled>Valor del Gift Card</option>
+                        <form class="giftcard-form" id="giftcardForm" novalidate>
+                <div class="form-feedback" id="giftcardFeedback" role="alert" aria-live="polite"></div>
+
+                <select id="giftcardValue" aria-label="Valor del Gift Card" required>
+                    <option selected disabled value="">Valor del Gift Card</option>
                     <option value="50000">$50.000 COP</option>
                     <option value="100000">$100.000 COP</option>
                     <option value="200000">$200.000 COP</option>
                     <option value="custom">Otro Valor</option>
                 </select>
-                <input type="date" placeholder="Fecha en la que quieres enviarla" aria-label="Fecha de envío">
 
-                <input type="text" placeholder="¿Para quién es el regalo?" aria-label="Nombre del destinatario">
-                <input type="email" placeholder="Correo al que se enviará" aria-label="Correo del destinatario">
+                <div class="full-width is-hidden" id="customAmountWrapper">
+                    <input type="number" id="giftcardCustomAmount" min="20000" step="1000" placeholder="Ingresa el valor del bono (min $20.000)" aria-label="Valor personalizado del bono">
+                </div>
 
-                <input type="text" placeholder="De: Tu nombre" aria-label="Tu nombre">
-                <input type="email" placeholder="Tu correo" aria-label="Tu correo">
+                <input type="date" id="giftcardDate" placeholder="Fecha en la que quieres enviarla" aria-label="Fecha de envio" required>
+
+                <input type="text" id="giftcardRecipientName" placeholder="Para quien es el regalo?" aria-label="Nombre del destinatario" required>
+                <input type="email" id="giftcardRecipientEmail" placeholder="Correo al que se enviara" aria-label="Correo del destinatario" required>
+
+                <input type="text" id="giftcardSenderName" placeholder="De: Tu nombre" aria-label="Tu nombre" required>
+                <input type="email" id="giftcardSenderEmail" placeholder="Tu correo" aria-label="Tu correo" required>
 
                 <div class="full-width">
-                    <textarea placeholder="Escribe el mensaje que quieres que reciba (opcional especial...)" aria-label="Mensaje para el destinatario" rows="3"></textarea>
+                    <textarea id="giftcardMessage" placeholder="Escribe el mensaje que quieres que reciba (opcional especial...)" aria-label="Mensaje para el destinatario" rows="3"></textarea>
                 </div>
                 
                 <button type="submit" class="btn btn-primary full-width">Realizar pago</button>
